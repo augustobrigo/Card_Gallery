@@ -14,7 +14,7 @@ function inicio(){
             let contenedorCar=document.querySelector("#cards")
             //Al hacer parse nos devuelve un objeto
             var arrayJson = JSON.parse(this.responseText);
-            var nItems=String(arrayJson).length/4;
+            
             var vectorAux=arrayJson;
             var indice=0;
             var caja=document.createElement("row");
@@ -57,7 +57,8 @@ function inicio(){
                     if ((i+indice)<vectorAux.length){
                         var datos=arrayJson[i+indice];
                         let imagenX=document.createElement("img");
-                        imagenX.style.transform="translateX(30%)";
+                        imagenX.style.transform="translateX(60%)";
+                        imagenX.style.margin="2vw";
                         imagenX.setAttribute("src",datos.imagen);
                         columna.appendChild(imagenX);
                     }
@@ -66,7 +67,9 @@ function inicio(){
                 caja.appendChild(columna);
                 contenedorImagenes.appendChild(caja);
                indice+=4;
-                           
+               if (indice>vectorAux.length){
+                indice=0;
+               }               
                     
                        
                  
